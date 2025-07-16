@@ -19,6 +19,7 @@ function App() {
   }, [tasks]);
 
   useEffect(() => {
+    //Para chamar uma biblioteca API descomente o código abaixo
     // const fetchTasks = async () => {
     //   const response = await fetch(
     //     "https://jsonplaceholder.typicode.com/todos?_limit=10",
