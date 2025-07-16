@@ -5,9 +5,14 @@ import { v4 } from "uuid";
 import Title from "./components/Title";
 
 function App() {
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks") || [])
-  );
+  const [tasks, setTasks] = useState(() => {
+    const stored = localStorage.getItem("tasks");
+    try {
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
